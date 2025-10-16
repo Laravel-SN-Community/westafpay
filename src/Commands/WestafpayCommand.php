@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Laravelsn\Westafpay\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class WestafpayCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'westafpay';
 
     public $description = 'My command';
 
