@@ -2,24 +2,17 @@
 
 namespace Laravelsn\Westafpay;
 
-use Laravelsn\Westafpay\Commands\WestafpayCommand;
+use Illuminate\Support\ServiceProvider;
 use Spatie\LaravelPackageTools\Package;
+use Laravelsn\Westafpay\Commands\WestafpayCommand;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class WestafpayServiceProvider extends PackageServiceProvider
+class WestafpayServiceProvider extends ServiceProvider
 {
-    public function configurePackage(Package $package): void
+    public function register()
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
-        $package
-            ->name('westafpay')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_westafpay_table')
-            ->hasCommand(WestafpayCommand::class);
+        $this->app->singleton('westafpay', function ($app) {
+            return new Westafpay($app);
+        });
     }
 }
