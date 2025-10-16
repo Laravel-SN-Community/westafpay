@@ -2,9 +2,9 @@
 
 namespace Laravelsn\Westafpay;
 
+use Laravelsn\Westafpay\Commands\WestafpayCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Laravelsn\Westafpay\Commands\WestafpayCommand;
 
 class WestafpayServiceProvider extends PackageServiceProvider
 {
