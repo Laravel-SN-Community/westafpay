@@ -2,24 +2,27 @@
 
 namespace Laravelsn\Westafpay\Providers\Wave;
 
-use Laravelsn\Westafpay\DataTransfertObjects\Wave\BalanceResponseData;
-
-class WaveProvider 
+class WaveProvider
 {
     protected WaveClient $client;
 
     public function __construct()
     {
-        $this->client = new WaveClient();
+        $this->client = new WaveClient;
     }
 
-    public function balance(bool $include_subaccounts = false)
+    public function getBalance(?bool $include_subaccounts = null)
     {
         return $this->client->balance($include_subaccounts);
     }
 
-    // public function transaction()
-    // {
-    //     return $this->client->transactions()->object();
-    // }
+    public function getTransactions(?string $date = null, ?bool $include_subaccounts = null)
+    {
+        return $this->client->transactions($date, $include_subaccounts);
+    }
+
+    public function getRefund(string $transaction_id)
+    {
+        return $this->client->refund($transaction_id);
+    }
 }
