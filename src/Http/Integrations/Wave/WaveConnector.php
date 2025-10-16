@@ -6,7 +6,6 @@ use Saloon\Http\Connector;
 
 class WaveConnector extends Connector
 {
-    
     public function resolveBaseUrl(): string
     {
         return config('westafpay.wave.base_url');
@@ -15,7 +14,7 @@ class WaveConnector extends Connector
     protected function defaultHeaders(): array
     {
         return [
-            'Authorization' => 'Bearer ' . config('westafpay.wave.api_key'),
+            'Authorization' => 'Bearer '.config('westafpay.wave.api_key'),
         ];
     }
 }

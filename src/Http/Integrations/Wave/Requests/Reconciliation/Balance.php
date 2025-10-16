@@ -2,10 +2,10 @@
 
 namespace Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Reconciliation;
 
+use Laravelsn\Westafpay\DataTransfertObjects\Wave\BalanceResponseData;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
-use Laravelsn\Westafpay\DataTransfertObjects\Wave\BalanceResponseData;
 
 class Balance extends Request
 {

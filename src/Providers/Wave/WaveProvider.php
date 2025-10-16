@@ -2,15 +2,13 @@
 
 namespace Laravelsn\Westafpay\Providers\Wave;
 
-use Laravelsn\Westafpay\DataTransfertObjects\Wave\BalanceResponseData;
-
-class WaveProvider 
+class WaveProvider
 {
     protected WaveClient $client;
 
     public function __construct()
     {
-        $this->client = new WaveClient();
+        $this->client = new WaveClient;
     }
 
     public function balance(bool $include_subaccounts = false)

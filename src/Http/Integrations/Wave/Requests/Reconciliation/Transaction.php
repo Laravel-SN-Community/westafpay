@@ -13,5 +13,4 @@ class Transaction extends Request
     {
         return '/v1/transactions';
     }
-
 }

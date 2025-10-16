@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Reconciliation;
 
@@ -12,7 +12,6 @@ class Refund extends Request
     public function __construct(
         protected readonly string $transaction_id,
     ) {}
-
 
     public function resolveEndpoint(): string
     {
