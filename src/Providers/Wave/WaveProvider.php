@@ -21,7 +21,7 @@ class WaveProvider
         return $this->client->transactions($date, $include_subaccounts);
     }
 
-    public function getRefund(string $transaction_id)
+    public function refund(string $transaction_id)
     {
         return $this->client->refund($transaction_id);
     }
