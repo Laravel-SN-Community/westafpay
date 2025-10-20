@@ -123,4 +123,9 @@ class WaveProvider
     {
         return $this->client->reservePayout($id);
     }
+
+    public function getMerchant()
+    {
+        return $this->client->getMerchant();
+    }
 }

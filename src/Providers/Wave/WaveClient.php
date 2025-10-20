@@ -8,6 +8,7 @@ use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\GetCheckout as 
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\GetCheckoutByTransactionId as GetCheckoutByTransactionIdRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\RefundCheckout as RefundCheckoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\SearchForCheckout as SearchForCheckoutRequest;
+use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\GetMerchant as GetMerchantRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\CreatePayout as CreatePayoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\GetPayout as GetPayoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\GetPayoutBatch as GetPayoutBatchRequest;
@@ -217,6 +218,16 @@ class WaveClient
     public function reservePayout(string $id)
     {
         $response = $this->connector->send(new ReservePayoutRequest($id));
+        if ($response->successful()) {
+            return $response->json();
+        }
+
+        return $response->throw();
+    }
+
+    public function getMerchant()
+    {
+        $response = $this->connector->send(new GetMerchantRequest);
         if ($response->successful()) {
             return $response->json();
         }
