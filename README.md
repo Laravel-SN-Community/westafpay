@@ -5,8 +5,8 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/laravelsn/westafpay/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/laravelsn/westafpay/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravelsn/westafpay.svg?style=flat-square)](https://packagist.org/packages/laravelsn/westafpay)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
+Westafpay enable you as developer to interact easily with payment provider in west africa. 
+Actually  this package only support Wave api. 
 ## Installation
 
 You can install the package via composer:
@@ -44,8 +44,9 @@ php artisan vendor:publish --tag="westafpay-views"
 ## Usage
 
 ```php
-$westafpay = new Laravelsn\Westafpay\Westafpay();
-echo $westafpay->echoPhrase('Hello, Laravelsn!');
+use Laravelsn\Westafpay\Facades\Westafpay;
+
+Westafpay::getBalance();
 ```
 
 ## Testing
