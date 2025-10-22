@@ -107,14 +107,14 @@ class WaveProvider
         return $this->client->getMerchant();
     }
 
-    public function createMarchand(array $payload)
+    public function createMerchant(array $payload)
     {
-        return $this->client->createMarchand($payload);
+        return $this->client->createMerchant($payload);
     }
 
-    public function getMarchandById(string $id)
+    public function getMerchantById(string $id)
     {
-        return $this->client->getMarchandById($id);
+        return $this->client->getMerchantById($id);
     }
 
     public function updateMerchant(string $id, array $payload)

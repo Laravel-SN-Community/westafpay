@@ -8,10 +8,10 @@ use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\GetCheckout as 
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\GetCheckoutByTransactionId as GetCheckoutByTransactionIdRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\RefundCheckout as RefundCheckoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\SearchForCheckout as SearchForCheckoutRequest;
-use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\CreateMarchand as CreateMarchandRequest;
+use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\CreateMerchant as CreateMerchantRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\DeleteMerchant as DeleteMerchantRequest;
-use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\GetMarchandById as GetMarchandByIdRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\GetMerchant as GetMerchantRequest;
+use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\GetMerchantById as GetMerchantByIdRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\UpdateMerchant as UpdateMerchantRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\CreatePayout as CreatePayoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\GetPayout as GetPayoutRequest;
@@ -239,9 +239,9 @@ class WaveClient
         return $response->throw();
     }
 
-    public function createMarchand(array $payload)
+    public function createMerchant(array $payload)
     {
-        $response = $this->connector->send(new CreateMarchandRequest($payload));
+        $response = $this->connector->send(new CreateMerchantRequest($payload));
         if ($response->successful()) {
             return $response->json();
         }
@@ -249,9 +249,9 @@ class WaveClient
         return $response->throw();
     }
 
-    public function getMarchandById(string $id)
+    public function getMerchantById(string $id)
     {
-        $response = $this->connector->send(new GetMarchandByIdRequest($id));
+        $response = $this->connector->send(new GetMerchantByIdRequest($id));
         if ($response->successful()) {
             return $response->json();
         }
