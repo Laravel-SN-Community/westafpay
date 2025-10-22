@@ -81,28 +81,6 @@ class WaveProvider
         return $this->client->searchPayout($client_reference);
     }
 
-    /**
-     * The list of payouts to be sent. Each item should have the same structure used for a single payout request.
-     *
-     * @param  array  $payload
-     *                          [
-     *                          'payouts' => [
-     *                          [
-     *                          'currency' => 'XOF',
-     *                          'receive_amount' => '500',
-     *                          'name' => 'Fatou Ndiaye',
-     *                          'mobile' => '+221555110219',
-     *                          ],
-     *                          [
-     *                          'currency' => 'XOF',
-     *                          'receive_amount' => '500',
-     *                          'name' => 'John Doe',
-     *                          'mobile' => '+221555110219',
-     *                          ],
-     *                          ...
-     *                          ]
-     *                          ]
-     */
     public function createPayoutBatch(array $payload)
     {
         return $this->client->createPayoutBatch($payload);
