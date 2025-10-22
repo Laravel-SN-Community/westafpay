@@ -128,4 +128,24 @@ class WaveProvider
     {
         return $this->client->getMerchant();
     }
+
+    public function createMarchand(array $payload)
+    {
+        return $this->client->createMarchand($payload);
+    }
+
+    public function getMarchandById(string $id)
+    {
+        return $this->client->getMarchandById($id);
+    }
+
+    public function updateMerchant(string $id, array $payload)
+    {
+        return $this->client->updateMerchant($id, $payload);
+    }
+
+    public function deleteMerchant(string $id)
+    {
+        return $this->client->deleteMerchant($id);
+    }
 }

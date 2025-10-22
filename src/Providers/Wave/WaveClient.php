@@ -8,7 +8,11 @@ use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\GetCheckout as 
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\GetCheckoutByTransactionId as GetCheckoutByTransactionIdRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\RefundCheckout as RefundCheckoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Checkout\SearchForCheckout as SearchForCheckoutRequest;
+use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\CreateMarchand as CreateMarchandRequest;
+use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\DeleteMerchant as DeleteMerchantRequest;
+use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\GetMarchandById as GetMarchandByIdRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\GetMerchant as GetMerchantRequest;
+use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Merchant\UpdateMerchant as UpdateMerchantRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\CreatePayout as CreatePayoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\GetPayout as GetPayoutRequest;
 use Laravelsn\Westafpay\Http\Integrations\Wave\Requests\Payout\GetPayoutBatch as GetPayoutBatchRequest;
@@ -228,6 +232,46 @@ class WaveClient
     public function getMerchant()
     {
         $response = $this->connector->send(new GetMerchantRequest);
+        if ($response->successful()) {
+            return $response->json();
+        }
+
+        return $response->throw();
+    }
+
+    public function createMarchand(array $payload)
+    {
+        $response = $this->connector->send(new CreateMarchandRequest($payload));
+        if ($response->successful()) {
+            return $response->json();
+        }
+
+        return $response->throw();
+    }
+
+    public function getMarchandById(string $id)
+    {
+        $response = $this->connector->send(new GetMarchandByIdRequest($id));
+        if ($response->successful()) {
+            return $response->json();
+        }
+
+        return $response->throw();
+    }
+
+    public function updateMerchant(string $id, array $payload)
+    {
+        $response = $this->connector->send(new UpdateMerchantRequest($id, $payload));
+        if ($response->successful()) {
+            return $response->json();
+        }
+
+        return $response->throw();
+    }
+
+    public function deleteMerchant(string $id)
+    {
+        $response = $this->connector->send(new DeleteMerchantRequest($id));
         if ($response->successful()) {
             return $response->json();
         }
